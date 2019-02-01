@@ -20,7 +20,7 @@ You should have a high-level understanding of how this assignment works before a
 
 Please submit both the deployed Github.io link to your homework AND the link to the Github Repository!
 
-## Instructions
+## Instructions New
 
 1. Before you can make any part of our site work, you need to create an array of strings, each one related to a stock symbol that interests you. Save it to a variable called `stocksList`.
 
