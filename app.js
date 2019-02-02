@@ -1,13 +1,15 @@
 // Initial array of stocks
 const stocks = ['FB', 'AAPL', 'TSLA', 'GOOG'];
 
+// Store all available stocks in this array as the validation list
+const validationList = ['']
+
 // displaystockInfo function re-renders the HTML to display the appropriate content
 const displayStockInfo = function () {
 
   // Grab the stock symbol from the button clicked and add it to the queryURL
   const stock = $(this).attr('data-name');
-  const queryURL = `https://api.iextrading.com/1.0/stock/${stock}/batch?types=quote,news&range=1m&last=1`;
-
+  const queryURL = `https://api.iextrading.com/1.0/stock/${stock}/batch?types=quote,news,logo&range=1m`;
   // Creating an AJAX call for the specific stock button being clicked
   $.ajax({
     url: queryURL,
@@ -45,7 +47,16 @@ const displayStockInfo = function () {
     stockDiv.append(priceHolder);
 
     // Storing the first news summary
-    const companyNews = response.news[0].summary;
+    const companyNews1 = response.news[0].summary;
+    const companyNews2 = response.news[1].summary;
+    const companyNews3 = response.news[2].summary;
+    const companyNews4 = response.news[3].summary;
+    const companyNews5 = response.news[4].summary;
+    const companyNews6 = response.news[5].summary;
+    const companyNews7 = response.news[6].summary;
+    const companyNews8 = response.news[7].summary;
+    const companyNews9 = response.news[8].summary;
+    const companyNews10 = response.news[9].summary;
 
     // Creating an element to display the news summary
     const summaryHolder = $('<p>').text(`News Headline: ${companyNews}`);
@@ -62,6 +73,7 @@ const displayStockInfo = function () {
 
 // Function for displaying stock data
 const render = function () {
+  // check the stock with the validation array and only after it has been validated then you can display it
 
   // Deleting the stocks prior to adding new stocks
   // (this is necessary otherwise you will have repeat buttons)
@@ -96,7 +108,8 @@ const addButton = function(event) {
   event.preventDefault();
 
   // This line will grab the text from the input box
-  const stock = $('#stock-input').val().trim();
+  const stock = $('#stock-input').val().trim().toUpperCase();
+  // capitalize user input
   
   // The stock from the textbox is then added to our array
   stocks.push(stock);
