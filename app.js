@@ -5,10 +5,9 @@ const validationList = []
 
 // Store all available stocks in this array as the validation list
 $.ajax({
-  url: 'https://api.iextrading.com/1.0/tops?filter=symbol',
+  url: 'https://api.iextrading.com/1.0/ref-data/symbols?filter=symbol',
   method: 'GET'
 }).then(function(response) {
-  
   for (let i = 0; i < response.length; i++) {
     const element = response[i].symbol;
     validationList.push(element);
@@ -19,7 +18,6 @@ $.ajax({
 const displayStockInfo = function () {
   // Grab the stock symbol from the button clicked and add it to the queryURL
   const stock = $(this).attr('data-name');
-  console.log(stock);
   
   const queryURL = `https://api.iextrading.com/1.0/stock/${stock}/batch?types=quote,news,logo&last=10`;
   // Creating an AJAX call for the specific stock button being clicked
