@@ -27,7 +27,7 @@ Please submit both the deployed Github.io link to your homework AND the link to 
 2. Your app should take the stocks in this array and create buttons in your HTML.
 
 * Try using a loop that appends a button for each string in the array.
-
+    
 3. When the user clicks on a button, the page should grab the company name, logo, price, and up to 10 news articles related to the stock from the iexTrading API and place them on the page.
 
 4. Make a separate iexTrading API call that will retrieve all stock symbols available in iexTrading and store it into an array called `validationList`. 
